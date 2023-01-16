@@ -18,7 +18,8 @@
 
 ### Live Demo
 
-- (https://frotend-project-ecommerce.netlify.app/)
+- Integrify -> (https://frotend-project-ecommerce.netlify.app/)
+- Public -> (https://shopping-ecommece.netlify.app/)
 
 ### Current Features
 
