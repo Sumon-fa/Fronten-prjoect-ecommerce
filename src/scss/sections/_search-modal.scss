@@ -1,0 +1,56 @@
+@use '../shared/variables/colors';
+
+@use '../shared/inheritances/mixins';
+
+.search-backdrop {
+  @include mixins.common-backdrop;
+}
+.search-modal {
+  @include mixins.common-modal(slide-down 300ms ease-out forwards, 100%);
+
+  &__child {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 4em;
+    & input {
+      width: 50%;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      padding: 9px 0;
+      outline: none;
+      font-size: large;
+      border-bottom: 1px solid #858585;
+      &::placeholder {
+        font-size: 20px;
+        color: colors.$search-placeholder-color;
+      }
+    }
+    & i {
+      font-size: 28px;
+      position: relative;
+      left: -20px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .search-modal {
+    height: 9em;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

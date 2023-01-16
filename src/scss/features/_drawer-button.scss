@@ -1,0 +1,7 @@
+@use '../shared/variables/colors';
+@use '../shared/variables/spacing';
+@use '../shared/inheritances/mixins';
+
+.drawer-button {
+  @include mixins.common-button(14rem);
+}

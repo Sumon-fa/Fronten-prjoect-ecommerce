@@ -1,0 +1,52 @@
+@use '../shared/variables/colors';
+
+@use '../shared/inheritances/mixins';
+
+.backdrop {
+  @include mixins.common-backdrop;
+}
+
+.modal {
+  @include mixins.common-modal(slide-right 300ms ease-out forwards, 90%);
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  .modal__child {
+    position: relative;
+    .modal__child__heading {
+      @include mixins.drawer-heading;
+      position: relative;
+      top: 30px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 16rem;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

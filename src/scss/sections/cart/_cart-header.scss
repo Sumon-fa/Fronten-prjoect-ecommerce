@@ -1,0 +1,27 @@
+.cart-container {
+  width: 90%;
+  margin: 0 auto 1.5rem auto;
+  overflow: auto;
+
+  &__nav {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    color: #7d7d7d;
+    li {
+      float: left;
+      padding: 0 6px;
+    }
+    li:first-child {
+      padding-left: 2px;
+    }
+    li:not(:last-child)::after {
+      content: ' \276f';
+      padding-left: 8px;
+    }
+  }
+  &__count {
+    float: right;
+    color: #333333;
+  }
+}

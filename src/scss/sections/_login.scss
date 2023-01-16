@@ -1,0 +1,44 @@
+@use '../shared/variables/colors';
+@use '../shared/variables/spacing';
+
+@use '../shared/inheritances/mixins';
+
+.login {
+  margin-top: 18%;
+  margin-bottom: spacing.$drawersection-bottom-margin;
+  & .login__textfield {
+    margin-bottom: 20px;
+
+    & input {
+      width: 14rem;
+      padding: 8px 16px;
+      background-color: colors.$drawerinput-bg-color;
+      color: colors.$drawerinput-color;
+      border: colors.$drawerinput-border-color;
+      box-sizing: border-box;
+      outline: none;
+
+      &:hover {
+        background-color: colors.$drawerinput-bg-hovercolor;
+        color: colors.$drawerinput-hovercolor;
+        border: colors.$drawerinput-border-hovercolor;
+      }
+      &:hover::placeholder {
+        color: colors.$drawerinput-hovercolor;
+      }
+      &:focus {
+        background-color: colors.$drawerinput-bg-focuscolor;
+        color: colors.$drawerinput-focuscolor;
+        border-color: colors.$drawerinput-border-focuscolor;
+      }
+    }
+  }
+}
+.forgot-password {
+  text-align: center;
+  margin-top: 5em;
+  span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

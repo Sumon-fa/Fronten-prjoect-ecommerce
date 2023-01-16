@@ -1,0 +1,125 @@
+.product-cart {
+  box-sizing: border-box;
+  width: 75%;
+  max-width: 960px;
+  &__products {
+    border-top: 1px solid #ddd;
+    &__row {
+      padding: 1rem 0;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+      overflow: auto;
+      width: 100%;
+      .col,
+      .quantity,
+      .remove {
+        float: left;
+      }
+      .col.left {
+        width: 70%;
+        display: flex;
+      }
+
+      .col.right {
+        width: 30%;
+        position: absolute;
+        right: 0;
+        top: calc(50% - 30px);
+      }
+      .detail {
+        padding: 0 0.5rem;
+        line-height: 2.2rem;
+        width: 65%;
+      }
+
+      .detail .name {
+        font-size: 1.2rem;
+      }
+
+      .detail .description {
+        color: #7d7d7d;
+        font-size: 1rem;
+      }
+
+      .detail .price {
+        font-size: 1.5rem;
+      }
+
+      .quantity,
+      .remove {
+        width: 50%;
+        text-align: center;
+      }
+      .remove svg {
+        width: 60px;
+        height: 60px;
+      }
+
+      .quantity > input {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        left: calc(50% - 30px);
+        background: #fff;
+        border: 2px solid #ddd;
+        color: #7f7f7f;
+        text-align: center;
+        font: 600 1.5rem Helvetica, Arial, sans-serif;
+      }
+
+      .quantity > input:hover,
+      .quantity > input:focus {
+        border-color: #f58551;
+      }
+
+      .close {
+        fill: #7d7d7d;
+        transition: color 150ms linear, background-color 150ms linear,
+          fill 150ms linear, 150ms opacity linear;
+        cursor: pointer;
+      }
+      .close:hover {
+        fill: #f58551;
+      }
+      img {
+        width: 200px;
+        height: 150px;
+        vertical-align: middle;
+        border-radius: 4px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333333;
+      }
+
+      a:hover {
+        color: #f58551;
+      }
+      .thumbnail,
+      .detail {
+        float: left;
+      }
+
+      .thumbnail {
+        width: 35%;
+      }
+
+      .detail {
+        width: 65%;
+      }
+    }
+  }
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}

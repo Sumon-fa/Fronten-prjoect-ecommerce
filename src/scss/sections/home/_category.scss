@@ -1,0 +1,35 @@
+@use '../../shared/variables/spacing';
+@use '../../shared/variables/colors';
+
+.category {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 2em;
+  row-gap: 2em;
+  margin: 0 12% spacing.$section 12%;
+  &__card-item {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    border-radius: 16px;
+    transition: transform 100ms linear;
+    cursor: pointer;
+    &:hover {
+      transform: translateY(-3px);
+    }
+    &__label {
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      background-color: colors.$category-label-bg;
+      padding: 7px 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      justify-content: center;
+      width: 60%;
+      margin: auto;
+      position: relative;
+      top: 13em;
+    }
+  }
+}

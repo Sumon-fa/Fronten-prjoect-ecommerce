@@ -1,0 +1,20 @@
+@use '../shared/variables/colors';
+@use '../shared/variables/spacing';
+
+@use '../shared/inheritances/mixins';
+
+.signup {
+  position: absolute;
+  margin-top: 17px;
+  & .signup-heading {
+    @include mixins.drawer-heading;
+  }
+  & .signup__signup-list {
+    & .signup__signup-list__item {
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 17px;
+      color: colors.$signuplist-item-color;
+    }
+  }
+}

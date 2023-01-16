@@ -1,0 +1,32 @@
+@use '../shared/variables/colors';
+@use '../shared/variables/spacing';
+
+.profile {
+  margin-bottom: spacing.$section;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  row-gap: 3em;
+  &__image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+
+    &__name {
+      color: #2596be;
+    }
+    &__role {
+      color: #2596be;
+    }
+    &__email {
+      color: #2596be;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use '../variables/colors';
+
+@mixin font {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@mixin header {
+  background-color: colors.$header-bg-color;
+  display: flex;
+  width: 100%;
+  max-height: 40px;
+  min-height: 40px;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+@mixin drawer-heading {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 21px;
+}
+
+@mixin common-modal($slide, $width) {
+  position: fixed;
+  width: $width;
+  background-color: colors.$drawer-bg-color;
+  z-index: 300;
+  animation: $slide;
+}
+@mixin common-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+  background-color: colors.$backdrop-bg-color;
+}
+@mixin common-button($width) {
+  position: absolute;
+  width: $width;
+  padding: 8px 0;
+  background-color: colors.$login-button-bgcolor;
+  color: colors.$login-button-color;
+  &:hover {
+    background-color: colors.$login-button-hoverbgcolor;
+    color: colors.$login-button-hovercolor;
+    border: colors.$login-button-bordercolor;
+  }
+}
