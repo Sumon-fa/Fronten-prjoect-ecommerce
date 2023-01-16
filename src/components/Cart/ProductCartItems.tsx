@@ -16,6 +16,8 @@ const ProductCartItems = () => {
     if (value && value > 0) {
       setAmount(value);
       setItems(item);
+    } else if (value < 1) {
+      alert('Please enter a value greater than 0');
     }
   };
   useEffect(() => {
@@ -62,6 +64,7 @@ const ProductCartItems = () => {
                       type="number"
                       className="quantity"
                       step="1"
+                      min={1}
                       defaultValue={item.amount}
                       onChange={(e) => changeHandler(item, e)}
                     />
