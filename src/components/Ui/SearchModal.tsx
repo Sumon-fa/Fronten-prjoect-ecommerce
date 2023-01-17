@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { Children } from '../types/children';
 import { BackProps, SearchModalProps } from '../types/header/search';
 
-function BackDrop({ onHide }: BackProps) {
-  return <div className="search-backdrop" onClick={onHide} />;
+function BackDrop({ onToogleSearch }: BackProps) {
+  return <div className="search-backdrop" onClick={onToogleSearch} />;
 }
 
 function ModalOverLay({ children }: Children) {
@@ -16,10 +16,13 @@ function ModalOverLay({ children }: Children) {
 }
 const portalElement = document.getElementById('searchlayer') as HTMLElement;
 
-function SearchModal({ children, onHide }: SearchModalProps) {
+function SearchModal({ children, onToogleSearch }: SearchModalProps) {
   return (
     <Fragment>
-      {ReactDOM.createPortal(<BackDrop onHide={onHide} />, portalElement)}
+      {ReactDOM.createPortal(
+        <BackDrop onToogleSearch={onToogleSearch} />,
+        portalElement
+      )}
       {ReactDOM.createPortal(
         <ModalOverLay>{children}</ModalOverLay>,
         portalElement

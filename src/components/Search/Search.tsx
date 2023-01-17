@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../hooks/reduxHook';
 import { getProductsByTitle } from '../../redux/actions/productActions';
 import { SearchProps } from '../types/header/search';
 import SearchModal from '../Ui/SearchModal';
-const Search = ({ onHide, setSearchToogle }: SearchProps) => {
+const Search = ({ onToogleSearch, setSearchToogle }: SearchProps) => {
   const [title, setTitle] = useState('');
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Search = ({ onHide, setSearchToogle }: SearchProps) => {
     }
   };
   return (
-    <SearchModal onHide={onHide}>
+    <SearchModal onToogleSearch={onToogleSearch}>
       <input
         onKeyPress={(e) => searchByEnterKey(e)}
         type="text"

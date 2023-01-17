@@ -1,3 +1,3 @@
 export interface DrawerProps {
-  onClose: () => void;
+  onToogle: () => void;
 }

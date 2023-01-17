@@ -6,7 +6,7 @@ import { login } from '../../redux/actions/AuthActions';
 import { LoginProps } from '../types/drawer/login';
 import Button from '../Ui/Button';
 
-const Login = ({ onClose }: LoginProps) => {
+const Login = ({ onToogle }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
@@ -69,7 +69,7 @@ const Login = ({ onClose }: LoginProps) => {
       </form>
 
       <section className="forgot-password">
-        <span onClick={onClose}>RETURN TO STORE</span>
+        <span onClick={onToogle}>RETURN TO STORE</span>
         <p>Forgot Password?</p>
       </section>
     </>

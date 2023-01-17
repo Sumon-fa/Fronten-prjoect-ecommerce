@@ -1,3 +1,3 @@
 export interface BackDropProps {
-  onClose: () => void;
+  onToogle: () => void;
 }

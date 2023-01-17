@@ -3,12 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HeaderProps } from '../types/header/header';
 import logo from '../../assets/Shopping-logos_black.png';
 import DropDownCategory from './DropDownCategory';
-import Background from './Background';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { authActions } from '../../redux/slices/authSlice';
-const Header = ({ onClose, onHide }: HeaderProps) => {
-  const location = useLocation();
-  const { isError, isLoading, token } = useAppSelector((state) => state.auth);
+const Header = ({ onToogle, onToogleSearch }: HeaderProps) => {
+  const { token } = useAppSelector((state) => state.auth);
   const { cartItems } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -38,7 +36,7 @@ const Header = ({ onClose, onHide }: HeaderProps) => {
                 onClick={logoutHandler}
               ></i>
             ) : (
-              <i onClick={onClose} className="fa-solid fa-user"></i>
+              <i onClick={onToogle} className="fa-solid fa-user"></i>
             )}
           </Link>
           <Link to="/product/cart" className="top-header__nav-bar__nav-link">
@@ -66,7 +64,7 @@ const Header = ({ onClose, onHide }: HeaderProps) => {
           </Link>
           <DropDownCategory />
         </nav>
-        <div className="bottom-header__search" onClick={onHide}>
+        <div className="bottom-header__search" onClick={onToogleSearch}>
           SEARCH <i className="fa-solid fa-magnifying-glass"></i>
         </div>
       </div>

@@ -29,13 +29,16 @@ const App = () => {
       <header>
         <Header
           toogle={toogle}
-          onClose={toogleDrawer}
-          onHide={toogleSearch}
+          onToogle={toogleDrawer}
+          onToogleSearch={toogleSearch}
           searchToogle={searchToogle}
         />
-        {toogle && !token?.access_token && <Drawer onClose={toogleDrawer} />}
+        {toogle && !token?.access_token && <Drawer onToogle={toogleDrawer} />}
         {searchToogle && (
-          <Search onHide={toogleSearch} setSearchToogle={setSearchToogle} />
+          <Search
+            onToogleSearch={toogleSearch}
+            setSearchToogle={setSearchToogle}
+          />
         )}
       </header>
 

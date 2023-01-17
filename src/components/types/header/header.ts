@@ -1,6 +1,6 @@
 export interface HeaderProps {
-  onClose: () => void;
+  onToogle: () => void;
   toogle: boolean;
-  onHide: () => void;
+  onToogleSearch: () => void;
   searchToogle: boolean;
 }

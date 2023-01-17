@@ -4,8 +4,8 @@ import { Children } from '../types/children';
 import { BackDropProps } from '../types/ui/backDrop';
 import { ModalProps } from '../types/ui/modal';
 
-function BackDrop({ onClose }: BackDropProps) {
-  return <div className="backdrop" onClick={onClose} />;
+function BackDrop({ onToogle }: BackDropProps) {
+  return <div className="backdrop" onClick={onToogle} />;
 }
 
 function ModalOverLay({ children }: Children) {
@@ -17,10 +17,10 @@ function ModalOverLay({ children }: Children) {
 }
 const portalElement = document.getElementById('overlays') as HTMLElement;
 
-function Modal({ children, onClose }: ModalProps) {
+function Modal({ children, onToogle }: ModalProps) {
   return (
     <Fragment>
-      {ReactDOM.createPortal(<BackDrop onClose={onClose} />, portalElement)}
+      {ReactDOM.createPortal(<BackDrop onToogle={onToogle} />, portalElement)}
       {ReactDOM.createPortal(
         <ModalOverLay>{children}</ModalOverLay>,
         portalElement

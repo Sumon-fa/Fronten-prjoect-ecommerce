@@ -1,11 +1,11 @@
 export interface SearchProps {
-  onHide: () => void;
+  onToogleSearch: () => void;
   setSearchToogle: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export interface BackProps {
-  onHide: () => void;
+  onToogleSearch: () => void;
 }
 export interface SearchModalProps {
-  onHide: () => void;
+  onToogleSearch: () => void;
   children: React.ReactNode;
 }
