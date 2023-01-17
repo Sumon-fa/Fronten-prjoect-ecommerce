@@ -49,6 +49,7 @@
   margin-right: 5px;
   cursor: pointer;
 }
+
 .box p {
   line-height: 1.5;
   margin: 15px 0;
@@ -83,4 +84,9 @@
   cursor: pointer;
   padding: 10px 25px;
   margin-top: 15px;
+  &:hover {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+  }
 }

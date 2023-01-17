@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { cartActions } from '../../redux/slices/cartSlice';
 import { ProductCart } from '../types/cartState';
@@ -7,6 +8,7 @@ const ProductCartItems = () => {
   const { cartItems } = useAppSelector((state) => state.cart);
   const [amount, setAmount] = useState(0);
   const [items, setItems] = useState<ProductCart>();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const changeHandler = (
     item: ProductCart,
@@ -34,6 +36,9 @@ const ProductCartItems = () => {
   const removeHandler = (id: number) => {
     dispatch(cartActions.removeCartItem(id));
   };
+  const navigateHandler = (id: number) => {
+    navigate(`/product/${id}`);
+  };
 
   return (
     <>
@@ -44,12 +49,15 @@ const ProductCartItems = () => {
               <li className="product-cart__products__row">
                 <div className="col left">
                   <div className="thumbnail">
-                    <a href="#">
+                    <a href="#" onClick={() => navigateHandler(item.id)}>
                       <img src={item.images[0]} alt={item.title} />
                     </a>
                   </div>
                   <div className="detail">
-                    <div className="name">
+                    <div
+                      className="name"
+                      onClick={() => navigateHandler(item.id)}
+                    >
                       <a href="#">{item.title}</a>
                     </div>
                     <div className="description">{item.description}</div>

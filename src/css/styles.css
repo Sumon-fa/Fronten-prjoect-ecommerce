@@ -631,6 +631,11 @@
   padding: 10px 25px;
   margin-top: 15px;
 }
+.box .cart:hover {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+}
 
 .cart-container {
   width: 90%;
