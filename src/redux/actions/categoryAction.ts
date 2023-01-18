@@ -7,8 +7,9 @@ export const getCategories = createAsyncThunk(
   async (data, thunk) => {
     try {
       const url = 'https://api.escuelajs.co/api/v1/categories?offset=0&limit=4';
-      const response: AxiosResponse<Category[] | Error, Category[] | Error> =
-        await axios.get(url);
+      const response: AxiosResponse<Category[], Category[]> = await axios.get(
+        url
+      );
 
       return response.data;
     } catch (err: any) {

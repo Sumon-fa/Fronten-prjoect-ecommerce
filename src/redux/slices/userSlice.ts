@@ -23,21 +23,15 @@ const userSlice = createSlice({
   extraReducers: (build) => {
     build.addCase(
       createUser.fulfilled,
-      (state, action: PayloadAction<User | Error>) => {
-        if (action.payload && 'message' in action.payload) {
-          state.isLoading = false;
-          state.isError = action.payload;
-          state.isSuccess = false;
-
-          return state;
-        } else if (!action.payload) {
+      (state, action: PayloadAction<User>) => {
+        if (!action.payload) {
           return state;
         }
         state.user = action.payload;
         state.isLoading = false;
         state.isError = null;
         state.isSuccess = true;
-        console.log('ddd', state.user);
+
         return state;
       }
     );

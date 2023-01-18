@@ -7,8 +7,7 @@ export const getSingleProducts = createAsyncThunk(
   async (id: string, thunk) => {
     try {
       const url = `https://api.escuelajs.co/api/v1/products/${id}`;
-      const response: AxiosResponse<Product | Error, Product | Error> =
-        await axios.get(url);
+      const response: AxiosResponse<Product, Product> = await axios.get(url);
 
       return response.data;
 

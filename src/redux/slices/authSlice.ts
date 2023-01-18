@@ -30,26 +30,17 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (build) => {
-    build.addCase(
-      login.fulfilled,
-      (state, action: PayloadAction<Token | Error>) => {
-        if (action.payload && 'message' in action.payload) {
-          state.isLoading = false;
-          state.isError = action.payload;
-          state.isSuccess = false;
-
-          return state;
-        } else if (!action.payload) {
-          return state;
-        }
-        state.isSuccess = true;
-
-        state.isLoading = false;
-        state.isError = null;
-        state.token = action.payload;
+    build.addCase(login.fulfilled, (state, action: PayloadAction<Token>) => {
+      if (!action.payload) {
         return state;
       }
-    );
+      state.isSuccess = true;
+
+      state.isLoading = false;
+      state.isError = null;
+      state.token = action.payload;
+      return state;
+    });
     build.addCase(login.rejected, (state, action: PayloadAction<any>) => {
       state.isError = action.payload;
     });
@@ -59,15 +50,8 @@ const authSlice = createSlice({
     });
     build.addCase(
       getCurrentUser.fulfilled,
-      (state, action: PayloadAction<CurrentUser | Error>) => {
-        if (action.payload && 'message' in action.payload) {
-          state.isLoading = false;
-          state.isError = action.payload;
-          state.isSuccess = false;
-          state.currentUser = null;
-
-          return state;
-        } else if (!action.payload) {
+      (state, action: PayloadAction<CurrentUser>) => {
+        if (!action.payload) {
           return state;
         }
         state.isSuccess = true;

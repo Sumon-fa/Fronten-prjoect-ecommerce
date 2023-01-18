@@ -8,8 +8,9 @@ export const getAllProducts = createAsyncThunk(
     try {
       const url = `https://api.escuelajs.co/api/v1/products/`;
 
-      const response: AxiosResponse<Product[] | Error, Product[] | Error> =
-        await axios.get(url);
+      const response: AxiosResponse<Product[], Product[]> = await axios.get(
+        url
+      );
 
       return response.data;
     } catch (err: any) {
@@ -28,8 +29,9 @@ export const getProductsByTitle = createAsyncThunk(
       const data: Product[] | Error = await jsonData.json();
 
       return data;*/
-      const response: AxiosResponse<Product[] | Error, Product[] | Error> =
-        await axios.get(url);
+      const response: AxiosResponse<Product[], Product[]> = await axios.get(
+        url
+      );
 
       return response.data;
     } catch (err: any) {
@@ -43,8 +45,9 @@ export const getProductsByCategoryId = createAsyncThunk(
     try {
       const url = `https://api.escuelajs.co/api/v1/products/?categoryId=${id}`;
 
-      const response: AxiosResponse<Product[] | Error, Product[] | Error> =
-        await axios.get(url);
+      const response: AxiosResponse<Product[], Product[]> = await axios.get(
+        url
+      );
 
       return response.data;
     } catch (err: any) {

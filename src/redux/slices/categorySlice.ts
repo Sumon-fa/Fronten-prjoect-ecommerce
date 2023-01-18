@@ -10,9 +10,7 @@ const categorySlice = createSlice({
   reducers: {},
   extraReducers: (build) => {
     build.addCase(getCategories.fulfilled, (state, action) => {
-      if (action.payload && 'message' in action.payload) {
-        return state;
-      } else if (!action.payload) {
+      if (!action.payload) {
         return state;
       }
       return action.payload;

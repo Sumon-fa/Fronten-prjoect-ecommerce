@@ -7,8 +7,7 @@ export const login = createAsyncThunk(
   async (user: { email: string; password: string }, thunk) => {
     try {
       const url = `https://api.escuelajs.co/api/v1/auth/login`;
-      const response: AxiosResponse<Token | Error, Token | Error> =
-        await axios.post(url, user);
+      const response: AxiosResponse<Token, Token> = await axios.post(url, user);
       localStorage.setItem('token', JSON.stringify(response.data));
 
       return response.data;
@@ -24,12 +23,14 @@ export const getCurrentUser = createAsyncThunk(
       const token: Token = JSON.parse(localStorage.getItem('token') || '');
       const url = `https://api.escuelajs.co/api/v1/auth/profile`;
 
-      const response: AxiosResponse<CurrentUser | Error, CurrentUser | Error> =
-        await axios.get(url, {
+      const response: AxiosResponse<CurrentUser, CurrentUser> = await axios.get(
+        url,
+        {
           headers: {
             Authorization: `Bearer ${token.access_token}`,
           },
-        });
+        }
+      );
 
       return response.data;
     } catch (err: any) {

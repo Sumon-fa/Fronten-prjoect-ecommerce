@@ -20,13 +20,8 @@ const productDetailsSlice = createSlice({
   extraReducers: (build) => {
     build.addCase(
       getSingleProducts.fulfilled,
-      (state, action: PayloadAction<Product | Error>) => {
-        if (action.payload && 'message' in action.payload) {
-          state.isLoading = false;
-          state.isError = action.payload;
-
-          return state;
-        } else if (!action.payload) {
+      (state, action: PayloadAction<Product>) => {
+        if (!action.payload) {
           return state;
         }
         state.product = action.payload;

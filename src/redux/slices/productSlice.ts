@@ -24,13 +24,8 @@ const productSlice = createSlice({
   extraReducers: (build) => {
     build.addCase(
       getAllProducts.fulfilled,
-      (state, action: PayloadAction<Product[] | Error>) => {
-        if (action.payload && 'message' in action.payload) {
-          state.isLoading = false;
-          state.isError = action.payload;
-
-          return state;
-        } else if (!action.payload) {
+      (state, action: PayloadAction<Product[]>) => {
+        if (!action.payload) {
           return state;
         }
         state.products = action.payload;
@@ -52,13 +47,8 @@ const productSlice = createSlice({
     });
     build.addCase(
       getProductsByTitle.fulfilled,
-      (state, action: PayloadAction<Product[] | Error>) => {
-        if (action.payload && 'message' in action.payload) {
-          state.isLoading = false;
-          state.isError = action.payload;
-
-          return state;
-        } else if (!action.payload) {
+      (state, action: PayloadAction<Product[]>) => {
+        if (!action.payload) {
           return state;
         }
         state.products = action.payload;
@@ -80,13 +70,8 @@ const productSlice = createSlice({
     });
     build.addCase(
       getProductsByCategoryId.fulfilled,
-      (state, action: PayloadAction<Product[] | Error>) => {
-        if (action.payload && 'message' in action.payload) {
-          state.isLoading = false;
-          state.isError = action.payload;
-
-          return state;
-        } else if (!action.payload) {
+      (state, action: PayloadAction<Product[]>) => {
+        if (!action.payload) {
           return state;
         }
         state.products = action.payload;

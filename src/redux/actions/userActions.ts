@@ -22,11 +22,13 @@ export const createUser = createAsyncThunk(
         data = response.data.location;
       }
 
-      const userData: AxiosResponse<User | Error, User | Error> =
-        await axios.post('https://api.escuelajs.co/api/v1/users/', {
+      const userData: AxiosResponse<User, User> = await axios.post(
+        'https://api.escuelajs.co/api/v1/users/',
+        {
           ...user,
           avatar: data,
-        });
+        }
+      );
 
       return userData.data;
     } catch (err: any) {
