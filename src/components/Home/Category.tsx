@@ -25,6 +25,3 @@ const Category = () => {
 };
 
 export default Category;
-/*<Link to={`/category/${cate.id}`}>
-            <div className="category__card-item__label">{cate.name}</div>
-          </Link>*/

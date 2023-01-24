@@ -1,6 +1,3 @@
-export interface HeaderProps {
+export interface TopHeaderProps {
   onToogle: () => void;
-  toogle: boolean;
-  onToogleSearch: () => void;
-  searchToogle: boolean;
 }

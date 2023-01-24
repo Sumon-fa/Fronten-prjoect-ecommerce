@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { useAppDispatch } from '../../hooks/reduxHook';
 import { getProductsByTitle } from '../../redux/actions/productActions';
+
 import { SearchProps } from '../types/header/search';
 import SearchModal from '../Ui/SearchModal';
+
 const Search = ({ onToogleSearch, setSearchToogle }: SearchProps) => {
   const [title, setTitle] = useState('');
   const dispatch = useAppDispatch();

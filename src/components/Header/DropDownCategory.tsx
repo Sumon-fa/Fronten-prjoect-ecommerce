@@ -24,15 +24,3 @@ const DropDownCategory = () => {
 };
 
 export default DropDownCategory;
-/*
-<div className="dropdown">
-      <span className="dropcategory">Category</span>
-      <div className="dropdown-content">
-        {category.map((cate) => (
-          <Link to={`/category/${cate.id}`} key={cate.id}>
-            {cate.name}
-          </Link>
-        ))}
-      </div>
-    </div>
-*/

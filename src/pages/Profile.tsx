@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
 import { getCurrentUser } from '../redux/actions/AuthActions';
 import { userActions } from '../redux/slices/userSlice';
-
+import Loader from '../components/Ui/Loader';
 const Profile = () => {
   const { currentUser, isLoading, isError } = useAppSelector(
     (state) => state.auth
@@ -23,7 +23,9 @@ const Profile = () => {
 
   return (
     <>
-      {currentUser && (
+      {isLoading && <Loader />}
+
+      {!isLoading && !isError && currentUser && (
         <div className="profile">
           <img
             className="profile__image"

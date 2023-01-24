@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import ProductCard from '../Ui/ProductCard';
+
+import Loader from '../Ui/Loader';
+
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { getAllProducts } from '../../redux/actions/productActions';
-import Loader from '../Ui/Loader';
 
 const FeaturedProducts = () => {
   const { products, isLoading, isError } = useAppSelector(

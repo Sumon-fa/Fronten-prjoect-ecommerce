@@ -12,7 +12,7 @@ export const login = createAsyncThunk(
 
       return response.data;
     } catch (err: any) {
-      return thunk.rejectWithValue({ error: err.message, statusCode: 500 });
+      return thunk.rejectWithValue({ message: err.message });
     }
   }
 );

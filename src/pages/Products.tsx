@@ -6,7 +6,6 @@ import { getAllProducts } from '../redux/actions/productActions';
 
 import Loader from '../components/Ui/Loader';
 import { productActions } from '../redux/slices/productSlice';
-import { title } from 'process';
 
 const Products = () => {
   const { products, isLoading, isError } = useAppSelector(

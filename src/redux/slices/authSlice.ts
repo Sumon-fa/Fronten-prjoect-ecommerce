@@ -14,7 +14,7 @@ const initialState: AuthState = {
   isLoading: false,
   isError: null,
   isSuccess: false,
-  currentUser: null,
+  currentUser: '',
 };
 
 const authSlice = createSlice({
@@ -26,7 +26,12 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoading = false;
       state.isError = null;
+      state.currentUser = '';
       localStorage.removeItem('token');
+      localStorage.removeItem('auth');
+    },
+    clearError(state) {
+      state.isError = null;
     },
   },
   extraReducers: (build) => {
@@ -66,7 +71,7 @@ const authSlice = createSlice({
       getCurrentUser.rejected,
       (state, action: PayloadAction<any>) => {
         state.isError = action.payload;
-        state.currentUser = null;
+        state.currentUser = '';
         state.isLoading = false;
       }
     );

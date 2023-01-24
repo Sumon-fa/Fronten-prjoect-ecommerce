@@ -1,22 +1,27 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { HeaderProps } from '../types/header/header';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from '../../assets/Shopping-logos_black.png';
+
 import DropDownCategory from './DropDownCategory';
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
-import { authActions } from '../../redux/slices/authSlice';
-const Header = ({ onToogle, onToogleSearch }: HeaderProps) => {
-  const { token } = useAppSelector((state) => state.auth);
-  const { cartItems } = useAppSelector((state) => state.cart);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+import TopHeader from './TopHeader';
+import BottomHeader from './BottomHeader';
 
-  const logoutHandler = () => {
-    dispatch(authActions.logout());
+import Drawer from '../Drawer/Drawer';
+import Search from '../Search/Search';
 
-    alert('Want to Logged Out.');
-    navigate('/');
+import { useAppSelector } from '../../hooks/reduxHook';
+
+const Header = () => {
+  const [toogle, setToogle] = useState(false);
+  const toogleDrawer = () => {
+    setToogle(!toogle);
   };
+  const [searchToogle, setSearchToogle] = useState(false);
+  const toogleSearch = () => {
+    setSearchToogle(!searchToogle);
+  };
+  const { token } = useAppSelector((state) => state.auth);
 
   return (
     <>
@@ -28,46 +33,24 @@ const Header = ({ onToogle, onToogleSearch }: HeaderProps) => {
             </Link>
           </h1>
         </div>
-        <nav className="top-header__nav-bar">
-          <Link to="#" className="top-header__nav-bar__nav-link">
-            {token && token.access_token ? (
-              <i
-                className="fa-solid fa-right-from-bracket"
-                onClick={logoutHandler}
-              ></i>
-            ) : (
-              <i onClick={onToogle} className="fa-solid fa-user"></i>
-            )}
-          </Link>
-          <Link to="/product/cart" className="top-header__nav-bar__nav-link">
-            <i className="fa-solid fa-bag-shopping"></i>
-            <span className="shopping-cart">
-              {' '}
-              bag ({cartItems.reduce((acc, curV) => acc + curV.amount, 0)})
-            </span>
-          </Link>
-          {token && token.access_token && (
-            <Link to="/profile" className="top-header__nav-bar__nav-link">
-              <i className="fa-solid fa-id-card-clip"></i>
-            </Link>
-          )}
-        </nav>
+        <TopHeader onToogle={toogleDrawer} />
       </div>
       <div className="bottom-header">
         <nav className="bottom-header__nav-bar">
-          <Link to="/" className="bottom-header__nav-bar__nav-link">
-            Home
-          </Link>
-
-          <Link to="/products" className="bottom-header__nav-bar__nav-link">
-            Products
-          </Link>
+          <BottomHeader />
           <DropDownCategory />
         </nav>
-        <div className="bottom-header__search" onClick={onToogleSearch}>
+        <div className="bottom-header__search" onClick={toogleSearch}>
           SEARCH <i className="fa-solid fa-magnifying-glass"></i>
         </div>
       </div>
+      {toogle && !token?.access_token && <Drawer onToogle={toogleDrawer} />}
+      {searchToogle && (
+        <Search
+          onToogleSearch={toogleSearch}
+          setSearchToogle={setSearchToogle}
+        />
+      )}
     </>
   );
 };

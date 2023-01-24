@@ -1,8 +1,7 @@
-import { set } from 'immer/dist/internal';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
-import { login } from '../../redux/actions/AuthActions';
+import { getCurrentUser, login } from '../../redux/actions/AuthActions';
+import { authActions } from '../../redux/slices/authSlice';
 import { LoginProps } from '../types/drawer/login';
 import Button from '../Ui/Button';
 
@@ -10,21 +9,15 @@ const Login = ({ onToogle }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const { isError, isLoading, token, isSuccess } = useAppSelector(
-    (state) => state.auth
-  );
+
+  const { isError, token } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
-    if (token && isSuccess) {
-      alert('Login Success');
-      navigate('/products');
-      //  alert('Success');
-    }
     if (isError) {
-      return alert(isError.error);
+      alert(isError.message);
+      dispatch(authActions.clearError());
     }
-  }, [isError, alert, token, navigate, isSuccess]);
+  }, [isError, alert, token]);
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

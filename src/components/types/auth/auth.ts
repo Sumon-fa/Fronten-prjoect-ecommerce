@@ -1,5 +1,3 @@
-import { type } from 'os';
-
 export interface User {
   name: string;
   email: string;
@@ -32,17 +30,20 @@ export interface AuthState {
   isLoading: boolean;
   isError: any;
   isSuccess: boolean;
-  currentUser: CurrentUser | null;
+  currentUser: CurrentUser | '';
 }
 export interface CurrentUser {
   name: string;
   email: string;
   password: string;
   avatar: string;
-  id: number;
+  id: number | null;
   role: string;
 }
 
 export interface CheckEmail {
   isAvailable: boolean;
+}
+export interface PreUser {
+  currentUser: CurrentUser | string;
 }

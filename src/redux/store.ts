@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { AuthState } from '../components/types/auth/auth';
 import { CartState } from '../components/types/cartState';
-import { ProductState } from '../components/types/products/productState';
 import authSlice from './slices/authSlice';
 import cartSlice from './slices/cartSlice';
 import categorySlice from './slices/categorySlice';
@@ -13,17 +13,33 @@ let preCart: CartState = {
   totalPrice: 0,
   subTotal: 0,
 };
+let preUser: AuthState = {
+  token: localStorage.getItem('token')
+    ? JSON.parse(localStorage.getItem('token') || '{}')
+    : null,
+  isLoading: false,
+  isError: null,
+  isSuccess: false,
+  currentUser: '',
+};
 const getCart = localStorage.getItem('cart');
 if (!!getCart) {
   preCart = JSON.parse(getCart);
 }
+const getUser = localStorage.getItem('currentUser');
+if (!!getUser) {
+  preUser = JSON.parse(getUser);
+}
 const preloadedState = {
   cart: preCart,
+  auth: preUser,
 };
 const saveState = (state: RootState) => {
   try {
     const cartReducer = JSON.stringify(state.cart);
     localStorage.setItem('cart', cartReducer);
+    const authReducer = JSON.stringify(state.auth.currentUser);
+    localStorage.setItem('auth', authReducer);
   } catch (e) {
     console.log(e);
   }
