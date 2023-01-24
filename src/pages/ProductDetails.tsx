@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductCart } from '../components/types/cartState';
 import { Product } from '../components/types/products/product';
+import Loader from '../components/Ui/Loader';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
 import { getSingleProducts } from '../redux/actions/ProductDetailsActions';
 import { cartActions } from '../redux/slices/cartSlice';
@@ -43,7 +44,8 @@ const ProductDetails = () => {
 
   return (
     <>
-      {product && (
+      {isLoading && <Loader />}
+      {!isLoading && !isError && product && (
         <div className="app">
           <div className="details">
             <div className="big-img">

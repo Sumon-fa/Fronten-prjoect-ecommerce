@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Header from './components/Header/Header';
@@ -52,7 +52,6 @@ const App = () => {
           />
 
           <Route path="*" element={<NotFound />}></Route>
-          <Route path="/product/:id/*" element={<NotFound />}></Route>
         </Routes>
       </main>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
-import { getCurrentUser, login } from '../../redux/actions/AuthActions';
+import { login } from '../../redux/actions/AuthActions';
 import { authActions } from '../../redux/slices/authSlice';
 import { LoginProps } from '../types/drawer/login';
 import Button from '../Ui/Button';
