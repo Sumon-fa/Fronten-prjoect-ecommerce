@@ -45,7 +45,7 @@ const App = () => {
           <Route
             path="/profile"
             element={
-              <ProtectedRoute isAdmin={true}>
+              <ProtectedRoute>
                 <Profile />
               </ProtectedRoute>
             }
