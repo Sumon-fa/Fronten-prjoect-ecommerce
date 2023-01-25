@@ -4,9 +4,9 @@ import { ProductCart } from '../components/types/cartState';
 import { Product } from '../components/types/products/product';
 import Loader from '../components/Ui/Loader';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
-import { getSingleProducts } from '../redux/actions/ProductDetailsActions';
+import { getSingleProducts } from '../redux/actions/productDetailsActions';
 import { cartActions } from '../redux/slices/cartSlice';
-import { productDetailsAction } from '../redux/slices/ProductDetailsSlice';
+import { productDetailsAction } from '../redux/slices/productDetailsSlice';
 
 const ProductDetails = () => {
   const [chooseProduct, setChoice] = useState(0);

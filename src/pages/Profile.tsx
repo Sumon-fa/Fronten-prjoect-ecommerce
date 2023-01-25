@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
-import { getCurrentUser } from '../redux/actions/AuthActions';
+import { getCurrentUser } from '../redux/actions/authAction';
 import { userActions } from '../redux/slices/userSlice';
 import Loader from '../components/Ui/Loader';
 const Profile = () => {

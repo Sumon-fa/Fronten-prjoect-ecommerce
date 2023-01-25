@@ -12,7 +12,7 @@ import CategorizedProducts from './pages/CategorizedProducts';
 import Profile from './pages/Profile';
 import CartPage from './pages/CartPage';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
-import { getCurrentUser } from './redux/actions/AuthActions';
+import { getCurrentUser } from './redux/actions/authAction';
 
 const App = () => {
   const { token } = useAppSelector((state) => state.auth);

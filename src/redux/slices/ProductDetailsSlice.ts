@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '../../components/types/products/product';
 import { ProductDetailsState } from '../../components/types/products/productState';
-import { getSingleProducts } from '../actions/ProductDetailsActions';
+import { getSingleProducts } from '../actions/productDetailsActions';
 
 const initialState: ProductDetailsState = {
   product: null,

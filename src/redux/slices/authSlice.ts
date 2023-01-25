@@ -4,7 +4,8 @@ import {
   CurrentUser,
   Token,
 } from '../../components/types/auth/auth';
-import { getCurrentUser, login } from '../actions/AuthActions';
+import { getCurrentUser, login } from '../actions/authAction';
+
 import { createUser } from '../actions/userActions';
 
 const initialState: AuthState = {

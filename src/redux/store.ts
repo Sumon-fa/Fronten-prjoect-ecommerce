@@ -4,7 +4,7 @@ import { CartState } from '../components/types/cartState';
 import authSlice from './slices/authSlice';
 import cartSlice from './slices/cartSlice';
 import categorySlice from './slices/categorySlice';
-import productDetailsSlice from './slices/ProductDetailsSlice';
+import productDetailsSlice from './slices/productDetailsSlice';
 import productSlice from './slices/productSlice';
 import userSlice from './slices/userSlice';
 

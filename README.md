@@ -36,8 +36,9 @@
 - HTML5
 - SCSS
 - React and Redux-Toolkit
+- React Portal
 - Typescript
-- Subscribe method to persist Cart data
+- Subscribe method to persist Cart data and user data
 - FakeApi(RestApi)
 - Good platform for Logo design (https://express.adobe.com/express-apps/logo-maker/)
 
@@ -81,6 +82,8 @@
 
 - Refactor the code.
 - Improve the Ui design.
+- Using Custom Hook
+- React Helmet for Document Header
 - Unit testing (jest)
 
 ### Requirement
