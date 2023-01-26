@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import CartPage from './pages/CartPage';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 import { getCurrentUser } from './redux/actions/authAction';
+import Loader from './components/Ui/Loader';
 
 const App = () => {
   const { token } = useAppSelector((state) => state.auth);
@@ -54,7 +55,7 @@ const App = () => {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </main>
-
+      <Loader />
       <Footer />
     </>
   );

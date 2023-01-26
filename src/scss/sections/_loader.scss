@@ -1,4 +1,4 @@
-.loader4 {
+.container__loader {
   width: 45px;
   height: 45px;
   display: inline-block;
@@ -9,10 +9,10 @@
   border-bottom-color: rgba(255, 255, 255, 0.3);
   border-left-color: rgba(246, 36, 89, 1);
   border-right-color: rgba(255, 255, 255, 0.3);
-  -webkit-animation: loader4 1s ease-in-out infinite;
-  animation: loader4 1s ease-in-out infinite;
+  -webkit-animation: loader 1s ease-in-out infinite;
+  animation: loader 1s ease-in-out infinite;
 }
-@keyframes loader4 {
+@keyframes loader {
   from {
     transform: rotate(0deg);
   }
@@ -20,7 +20,7 @@
     transform: rotate(360deg);
   }
 }
-@-webkit-keyframes loader4 {
+@-webkit-keyframes loader {
   from {
     -webkit-transform: rotate(0deg);
   }
