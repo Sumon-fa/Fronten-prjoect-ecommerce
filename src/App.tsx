@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import ProtectedRoute from './components/Routes/ProtectedRoute';
+
+import { useAppDispatch, useAppSelector } from './hooks/reduxHook';
+import { getCurrentUser } from './redux/actions/authAction';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+
+import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
-import { useAppDispatch, useAppSelector } from './hooks/reduxHook';
 import SearchPage from './pages/SearchPage';
 import NotFound from './pages/NotFound';
 import CategorizedProducts from './pages/CategorizedProducts';
 import Profile from './pages/Profile';
 import CartPage from './pages/CartPage';
-import ProtectedRoute from './components/Routes/ProtectedRoute';
-import { getCurrentUser } from './redux/actions/authAction';
-import Loader from './components/Ui/Loader';
 
 const App = () => {
   const { token } = useAppSelector((state) => state.auth);
@@ -55,7 +57,7 @@ const App = () => {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </main>
-      <Loader />
+
       <Footer />
     </>
   );
