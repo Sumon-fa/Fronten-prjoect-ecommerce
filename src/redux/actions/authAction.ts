@@ -8,8 +8,6 @@ export const login = createAsyncThunk(
     try {
       const url = `https://api.escuelajs.co/api/v1/auth/login`;
       const response: AxiosResponse<Token, Token> = await axios.post(url, user);
-      localStorage.setItem('token', JSON.stringify(response.data));
-
       return response.data;
     } catch (err: any) {
       return thunk.rejectWithValue({ message: err.message });
