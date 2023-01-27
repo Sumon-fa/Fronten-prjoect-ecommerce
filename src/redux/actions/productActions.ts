@@ -55,34 +55,3 @@ export const getProductsByCategoryId = createAsyncThunk(
     }
   }
 );
-
-/*export const getProducts = () => {
-  return async (dispatch: Dispatch) => {
-    const fetchData = async () => {
-      dispatch(productActions.loader());
-      let link = 'https://api.escuelajs.co/api/v1/products';
-
-      const response = await fetch(link);
-      if (!response.ok) {
-        throw new Error('Something Went Wrong');
-      }
-      const data = await response.json();
-
-      return data;
-    };
-
-    try {
-      const productData = await fetchData();
-      console.log(productData);
-      dispatch(
-        productActions.allProduct({
-          products: productData || [],
-        })
-      );
-    } catch (error) {
-      console.log(error);
-    }
-    dispatch(productActions.loader());
-  };
-};
-*/

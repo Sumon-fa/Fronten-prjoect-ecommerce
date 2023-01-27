@@ -9,9 +9,7 @@ import { getCurrentUser, login } from '../actions/authAction';
 import { createUser } from '../actions/userActions';
 
 const initialState: AuthState = {
-  token: localStorage.getItem('token')
-    ? JSON.parse(localStorage.getItem('token') || '{}')
-    : null,
+  token: '',
   isLoading: false,
   isError: null,
   isSuccess: false,
@@ -24,7 +22,7 @@ const authSlice = createSlice({
   reducers: {
     logout(state) {
       state.isSuccess = false;
-      state.token = null;
+      state.token = '';
       state.isLoading = false;
       state.isError = null;
       state.currentUser = '';

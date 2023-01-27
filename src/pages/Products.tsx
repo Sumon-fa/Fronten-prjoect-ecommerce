@@ -16,7 +16,7 @@ const Products = () => {
 
   useEffect(() => {
     if (isError) {
-      alert(isError.error + ', ' + isError.statusCode);
+      alert(isError.message);
       dispatch(productActions.clearError());
     }
     dispatch(getAllProducts());

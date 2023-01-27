@@ -44,7 +44,7 @@ const Header = () => {
           SEARCH <i className="fa-solid fa-magnifying-glass"></i>
         </div>
       </div>
-      {toogle && !token?.access_token && <Drawer onToogle={toogleDrawer} />}
+      {toogle && !token && <Drawer onToogle={toogleDrawer} />}
       {searchToogle && (
         <Search
           onToogleSearch={toogleSearch}

@@ -26,7 +26,7 @@ export interface Token {
   refresh_token: string;
 }
 export interface AuthState {
-  token: Token | null;
+  token: Token | '';
   isLoading: boolean;
   isError: any;
   isSuccess: boolean;
@@ -37,7 +37,7 @@ export interface CurrentUser {
   email: string;
   password: string;
   avatar: string;
-  id: number | null;
+  id: number;
   role: string;
 }
 
@@ -45,5 +45,5 @@ export interface CheckEmail {
   isAvailable: boolean;
 }
 export interface PreUser {
-  currentUser: CurrentUser | string;
+  currentUser: CurrentUser | '';
 }

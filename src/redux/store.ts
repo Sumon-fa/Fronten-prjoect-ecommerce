@@ -14,9 +14,7 @@ let preCart: CartState = {
   subTotal: 0,
 };
 let preUser: AuthState = {
-  token: localStorage.getItem('token')
-    ? JSON.parse(localStorage.getItem('token') || '{}')
-    : null,
+  token: '',
   isLoading: false,
   isError: null,
   isSuccess: false,
@@ -28,7 +26,11 @@ if (!!getCart) {
 }
 const getUser = localStorage.getItem('currentUser');
 if (!!getUser) {
-  preUser = JSON.parse(getUser);
+  preUser.currentUser = JSON.parse(getUser);
+}
+const token = localStorage.getItem('token');
+if (!!token) {
+  preUser.token = JSON.parse(token);
 }
 const preloadedState = {
   cart: preCart,
@@ -38,8 +40,10 @@ const saveState = (state: RootState) => {
   try {
     const cartReducer = JSON.stringify(state.cart);
     localStorage.setItem('cart', cartReducer);
-    const authReducer = JSON.stringify(state.auth.currentUser);
-    localStorage.setItem('auth', authReducer);
+    const userReducer = JSON.stringify(state.auth.currentUser);
+    localStorage.setItem('currentUser', userReducer);
+    const authToken = JSON.stringify(state.auth.token);
+    localStorage.setItem('token', authToken);
   } catch (e) {
     console.log(e);
   }
