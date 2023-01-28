@@ -1,16 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
+import axiosInstance from '../../common/axiosInstance';
 import { Product } from '../../components/types/products/product';
 
 export const getAllProducts = createAsyncThunk(
   'getAllProducts',
   async (data, thunkApi) => {
     try {
-      const url = `https://api.escuelajs.co/api/v1/products/`;
-
-      const response: AxiosResponse<Product[], Product[]> = await axios.get(
-        url
-      );
+      const response: AxiosResponse<Product[], Product[]> =
+        await axiosInstance.get('/products');
 
       return response.data;
     } catch (err: any) {
@@ -22,16 +20,13 @@ export const getProductsByTitle = createAsyncThunk(
   'getProductsByTitle',
   async (title: string, thunkApi) => {
     try {
-      const url = `https://api.escuelajs.co/api/v1/products/?title=${title}`;
-
       /*  const jsonData = await fetch(url);
 
       const data: Product[] | Error = await jsonData.json();
 
       return data;*/
-      const response: AxiosResponse<Product[], Product[]> = await axios.get(
-        url
-      );
+      const response: AxiosResponse<Product[], Product[]> =
+        await axiosInstance.get(`/products/?title=${title}`);
 
       return response.data;
     } catch (err: any) {
@@ -43,11 +38,8 @@ export const getProductsByCategoryId = createAsyncThunk(
   'getProductsByCategoryId',
   async (id: string, thunkApi) => {
     try {
-      const url = `https://api.escuelajs.co/api/v1/products/?categoryId=${id}`;
-
-      const response: AxiosResponse<Product[], Product[]> = await axios.get(
-        url
-      );
+      const response: AxiosResponse<Product[], Product[]> =
+        await axiosInstance.get(`/products/?categoryId=${id}`);
 
       return response.data;
     } catch (err: any) {
