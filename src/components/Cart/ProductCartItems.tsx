@@ -27,12 +27,12 @@ const ProductCartItems = () => {
       const cart = {
         ...items,
         amount: amount,
-        price: items.price,
       };
 
       dispatch(cartActions.changeQty(cart));
     }
   }, [amount, items]);
+
   const removeHandler = (id: number) => {
     dispatch(cartActions.removeCartItem(id));
   };

@@ -3,6 +3,7 @@ import { useAppSelector } from '../../hooks/reduxHook';
 
 const Summary = () => {
   const { totalPrice, subTotal } = useAppSelector((state) => state.cart);
+
   return (
     <section className="summary-container">
       <div className="summary-container__summary">

@@ -14,7 +14,10 @@ const Header = () => {
       </ul>
 
       <span className="cart-container__count">
-        {cartItems.reduce((acc, curV) => acc + curV.amount, 0)} items in the bag
+        {cartItems && cartItems.length > 0
+          ? cartItems.reduce((acc, curV) => acc + curV.amount, 0)
+          : 0}{' '}
+        items in the bag
       </span>
     </div>
   );

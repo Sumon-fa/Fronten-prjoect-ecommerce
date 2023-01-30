@@ -32,7 +32,11 @@ const TopHeader = ({ onToogle }: TopHeaderProps) => {
         <i className="fa-solid fa-bag-shopping"></i>
         <span className="shopping-cart">
           {' '}
-          bag ({cartItems.reduce((acc, curV) => acc + curV.amount, 0)})
+          bag (
+          {cartItems && cartItems.length > 0
+            ? cartItems.reduce((acc, curV) => acc + curV.amount, 0)
+            : 0}
+          )
         </span>
       </Link>
       {token && token.access_token && (

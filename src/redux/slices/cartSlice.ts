@@ -77,8 +77,16 @@ const cartSlice = createSlice({
       state.cartItems = state.cartItems.filter(
         (item) => item.id !== action.payload
       );
-      state.totalPrice = 0;
-      state.subTotal = 0;
+      if (state.cartItems.length > 0) {
+        state.totalPrice = state.cartItems.reduce(
+          (acc, cur) => acc + cur.updatedPrice,
+          0
+        );
+        state.subTotal = state.totalPrice - (state.totalPrice * 24) / 100;
+      } else {
+        state.totalPrice = 0;
+        state.subTotal = state.totalPrice - (state.totalPrice * 24) / 100;
+      }
     },
     checkOut(state, action) {},
   },
